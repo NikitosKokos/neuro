@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('_head.html',{
+	"title":"Neuro | Home"
+	})
+	<body>
+		<div id="cursor"></div>
+		<div class="wrapper">
+			@@include('_header.html',{})
+			<main class="main">
+				<div class="rocket"></div>
+				<div class="page">
+					<div class="earth">
+						<div class='earth__content _container'>
+							<h1 class="earth__title">Welcome!</h1>
+							<div class="earth__body"><div class="earth__planet"></div></div>
+							<a href="#" class="earth__btn btn">Start</a>						
+						</div>
+					</div>
+					<div class="space">
+					</div>
+					<div class="mars">
+						<div class='mars__content _container'>
+							<div class="mars__body"><div class="mars__planet"></div></div>
+							<a href="#" class="mars__btn btn">Back</a>
+						</div>
+					</div>
+				</div>
+			</main>
+			
+			@@include('_footer.html',{})
+		</div>
+		@@include('_popup.html',{})
+		@@include('_js.html',{})
+	</body>
+</html>

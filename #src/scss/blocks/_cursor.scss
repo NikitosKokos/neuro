@@ -1,0 +1,25 @@
+#cursor{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: $main;
+    border-radius: 50%;
+    z-index: 10000;
+    user-select: none;
+    pointer-events: none;
+    margin: -8px 0 0 -8px;
+    border: .1px solid transparent;
+    transform: scale(1);
+    transition: transform .1s ease-in-out,background .2s ease-in-out,border-color .2s ease-in-out;
+    &.active{
+        transform: scale(3.4);
+        background: rgba($main, .1);
+        border-color: $main;
+    }
+    &.hidden{
+        transform: scale(.001);
+    }
+    @media (max-width: $md2+px){
+       display: none;
+    }
+}

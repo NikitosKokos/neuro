@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('_head.html',{
+	"title":"Neuro | Gallery"
+	})
+	<body>
+		<div id="cursor"></div>
+		<div class="wrapper">
+			@@include('_header.html',{})
+			<main class="main">
+                <div class="gallery">
+                    <div class='gallery__content _container'>
+                        <h2 class="gallery__title title">Gallery</h2>
+                        <div class="gallery__body">
+                            <div class="gallery__item">
+                                <div class="gallery__img"><img src="./img/gallery/01.jpg" alt="gallery"></div>
+                            </div>
+                             <div class="gallery__item">
+                                <div class="gallery__img"><img src="./img/gallery/02.jpg" alt="gallery"></div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img"><img src="./img/gallery/03.jpg" alt="gallery"></div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img"><img src="./img/gallery/04.jpg" alt="gallery"></div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img"><img src="./img/gallery/05.jpg" alt="gallery"></div>
+                            </div>
+                            <div class="gallery__item">
+                                <div class="gallery__img"><img src="./img/gallery/06.jpg" alt="gallery"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</main>
+			
+			@@include('_footer.html',{})
+		</div>
+		@@include('_popup.html',{})
+		@@include('_js.html',{})
+	</body>
+</html>

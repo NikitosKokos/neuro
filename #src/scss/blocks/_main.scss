@@ -1,0 +1,232 @@
+.main{
+    position: relative;
+}
+
+.page{
+    background: url('../img/space.jpg') 0 0 repeat, #111;
+    width: 1000vw;
+    min-height: 100vh;
+    overflow: auto;
+    padding: 80px 0px 40px 0px;
+    display: flex;
+    position: relative;
+    &.start{
+        animation: start 6s forwards linear;
+    }
+    &.back{
+        animation: back 6s forwards linear;
+    }
+    @keyframes start {
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(-900vw);
+        }
+    }
+    @keyframes back {
+        0%{
+            transform: translateX(-900vw);
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
+}
+.space{
+    flex: 1 1 auto;
+}
+.rocket{
+    position: absolute;
+    top: 50%;
+    width: 365px;
+    height: 150px;
+    left: calc(50vw + 200px);
+    transform: translate(-50% , -50%) scale(0);
+    background: url('../img/rocket.png') 0 0 no-repeat;
+    background-size: contain !important;
+    z-index: 9;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    @media (max-width: $md4+px){
+        width: 300px;
+        height: 125px;  
+    }
+    &.show{
+        left: calc(50vw + 200px);
+        opacity: 1;
+        animation: rocket 6s forwards linear;
+    }
+    &.back{
+        left: calc(50vw - 200px);
+        opacity: 1;
+        animation: rocketBack 6s forwards linear;        
+    }
+    
+    @keyframes rocket {
+        0%{
+            transform: translate(-50% , -50%) scale(1);
+            left: 50vw;
+        }
+        90%{
+            transform: translate(-50% , -50%) scale(1);
+            left: 50vw;
+        }
+        100%{
+            transform: translate(-50% , -50%) scale(0);
+            left: calc(50vw - 200px);
+        }
+    }
+
+    @keyframes rocketBack {
+        0%{
+            transform: translate(-50% , -50%) scale(1) rotate(180deg);
+            left: 50vw;
+        }
+        90%{
+            transform: translate(-50% , -50%) scale(1) rotate(180deg);
+            left: 50vw;
+        }
+        100%{
+            transform: translate(-50% , -50%) scale(0)  rotate(180deg);
+            left: calc(50vw + 200px);
+        }
+    }
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    background: $main;
+    color: $white;
+    border-radius: 25px;
+    padding: 0 40px;
+    transition: all .3s ease-in-out;
+    position: relative;
+    z-index: 2;
+
+    @media (min-width: 992px){
+       &:hover{
+       background: transparent;
+     }
+    }
+}
+
+.earth {
+    width: 100vw;
+    &__content{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__title {
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        color: $white;
+        text-align: center;
+        transition: all .3s ease-in-out;
+        margin: 0px 0px 30px 0px;
+        position: relative;
+        z-index: 2;
+        &.hide{
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-100%);
+        }
+    }
+
+    &__body {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        margin: 0px 0px 30px 0px;
+        @media (max-width: $md4+px){
+            width: 300px;
+            height: 300px;
+        }
+    }
+    &__planet{
+        position: absolute;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        background: url('../img/earth.jpg') 0 0 repeat;
+        background-size: cover !important;
+        box-shadow: inset 0 0 20px #03a9f4,
+                    0 0 120px #03a9f4;
+        animation: earth 20s linear infinite; 
+        @keyframes earth {
+            0%{
+                background-position: 0;
+            }
+            0%{
+                background-position: -167%;
+            }
+        }       
+    }
+
+    &__btn {
+        &.hide{
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100%);
+        }
+    }
+}
+
+
+.mars {
+    width: 100vw;
+    &__content{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__body {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        margin: 0px 0px 30px 0px;
+        @media (max-width: $md4+px){
+            width: 300px;
+            height: 300px;
+        }
+    }
+    &__planet{
+        position: absolute;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        background: url('../img/mars.jpg') 0 0 repeat;
+        background-size: cover !important;
+        box-shadow: inset 0 0 20px #ff5782,
+                    0 0 120px #ff5782;
+        animation: mars 6s linear infinite; 
+        @keyframes mars {
+            0%{
+                background-position: 0;
+            }
+            0%{
+                background-position: -400px;
+            }
+        }       
+    }
+    &__btn{
+        &.hide{
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100%);
+        }
+    }
+}
