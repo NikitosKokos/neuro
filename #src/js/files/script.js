@@ -43,46 +43,100 @@ document.addEventListener('DOMContentLoaded', () => {
     cursor.classList.add('hidden');
   });
 
-  const duration = 6000;
+  const duration = 4000;
   const page = document.querySelector('.page');
   const startBtn = document.querySelector('.earth__btn');
-  const backBtn = document.querySelector('.mars__btn');
-  const startTitle = document.querySelector('.earth__title');
+  const backBtnMars = document.querySelector('.mars__btn_back');
+  const nextBtnMars = document.querySelector('.mars__btn_next');
+  const backBtnPluto = document.querySelector('.pluto__btn_back');
+  const finishBtnPluto = document.querySelector('.pluto__btn_finish');
+  const earthTitle = document.querySelector('.earth__title');
+  const marsTitle = document.querySelector('.mars__title');
+  const plutoTitle = document.querySelector('.pluto__title');
+  const earthButtons = document.querySelector('.earth__buttons');
+  const marsButtons = document.querySelector('.mars__buttons');
+  const plutoButtons = document.querySelector('.pluto__buttons');
   const rocket = document.querySelector('.rocket');
-  startBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    startBtn.classList.add('hide');
-    startTitle.classList.add('hide');
-    page.classList.add('start');
-    rocket.classList.add('show');
 
-    backBtn.classList.remove('hide');
-    page.classList.remove('back');
-    rocket.classList.remove('back');
-
+  const flyRocket = (btn, pageClass, title) => {
+    btn.classList.add('hide');
+    title.classList.add('hide');
     setTimeout(() => {
-      startBtn.classList.remove('hide');
-      startTitle.classList.remove('hide');
-      rocket.classList.remove('show');
-    }, duration);
-  });
-
-  backBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    backBtn.classList.add('hide');
-    page.classList.add('back');
-    rocket.classList.add('back');
-
-    startBtn.classList.remove('hide');
-    startTitle.classList.remove('hide');
-    page.classList.remove('start');
-    rocket.classList.remove('show');
-
-    setTimeout(() => {
-      backBtn.classList.remove('hide');
+      page.classList.add(pageClass);
+      rocket.classList.add('show');
+  
       page.classList.remove('back');
       rocket.classList.remove('back');
-    }, duration);
+
+      setTimeout(() => {
+        btn.classList.remove('hide');
+        title.classList.remove('hide');
+        rocket.classList.remove('show');
+      }, duration);
+    }, 500);
+  }
+
+  const backRocket = (btn, pageClass, title) => {
+    title.classList.add('hide');
+    btn.classList.add('hide');
+    setTimeout(() => {
+      
+      page.classList.add(pageClass);
+      rocket.classList.add('back');
+      
+      if (pageClass === 'back') page.classList.remove('start');
+      if (pageClass === 'back') page.classList.remove('back2');
+      page.classList.remove('next');
+      rocket.classList.remove('show');
+
+      setTimeout(() => {
+          btn.classList.remove('hide');
+          rocket.classList.remove('back');
+          title.classList.remove('hide');
+      }, duration);
+    }, 500);
+  };
+
+  if(startBtn){
+    startBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      flyRocket(earthButtons, 'start', earthTitle);
+    });
+  }
+
+  if(backBtnMars){
+    backBtnMars.addEventListener('click', (e) => {
+        e.preventDefault();
+        backRocket(marsButtons, 'back', marsTitle);
+    });
+  }
+
+  if (nextBtnMars) {
+      nextBtnMars.addEventListener('click', (e) => {
+          e.preventDefault();
+          flyRocket(marsButtons, 'next', marsTitle);
+      });
+  }
+
+  if(backBtnPluto){
+    backBtnPluto.addEventListener('click', (e) => {
+        e.preventDefault();
+        backRocket(plutoButtons, 'back2', plutoTitle);
+    });
+  }
+
+  if(finishBtnPluto){
+    finishBtnPluto.addEventListener('click', (e) => {
+        e.preventDefault();
+        popup_open('app');
+    });
+  }
+
+  const popupForm = document.querySelector('.popup__form');
+
+  popupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
   });
+  
 
 }); //end

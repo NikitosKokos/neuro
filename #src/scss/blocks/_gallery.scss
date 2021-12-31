@@ -10,7 +10,7 @@
     &__body {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(auto-fit, 1fr);
         gap: 10px;
         @media (max-width: $md3+px){
             grid-template-columns: repeat(2, 1fr);

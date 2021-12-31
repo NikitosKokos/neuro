@@ -6,6 +6,7 @@
 @import "./base/select"; 
 @import "./base/burger"; 
 @import "./base/ibg"; 
+@import "./base/popup"; 
 @import "./libs/swiper-bundle.min"; 
 
 // blocks
@@ -52,7 +53,7 @@
 
 body{
 	// overflow: hidden;
-	&.hidden{
+	&._lock{
 		overflow: hidden;
 	}
 }
